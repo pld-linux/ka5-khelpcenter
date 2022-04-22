@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	21.12.3
+%define		kdeappsver	22.04.0
 %define		kframever	5.90.0
 %define		qtver		5.15.0
 %define		kaname		khelpcenter
 Summary:	khelpcenter
 Name:		ka5-%{kaname}
-Version:	21.12.3
+Version:	22.04.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	badb8345d04cce7270240ca15d1c9286
+# Source0-md5:	e07242214b8bb0bb2a6625b086bcaf8e
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= 5.15.2
 BuildRequires:	Qt5DBus-devel >= 5.15.2
@@ -117,10 +117,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files data -f %{kaname}.lang
 %defattr(644,root,root,755)
-%{_desktopdir}/org.kde.Help.desktop
 %{_datadir}/config.kcfg/khelpcenter.kcfg
 %{_datadir}/kde4/services/khelpcenter.desktop
 %{_datadir}/khelpcenter
 %{_datadir}/kservices5/khelpcenter.desktop
-%{_datadir}/metainfo/org.kde.Help.appdata.xml
 %{_datadir}/qlogging-categories5/khelpcenter.categories
+%{_desktopdir}/org.kde.khelpcenter.desktop
+%{_datadir}/dbus-1/services/org.kde.khelpcenter.service
+%{_datadir}/metainfo/org.kde.khelpcenter.metainfo.xml
