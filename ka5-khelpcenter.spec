@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	22.08.0
+%define		kdeappsver	22.08.1
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		khelpcenter
 Summary:	khelpcenter
 Name:		ka5-%{kaname}
-Version:	22.08.0
+Version:	22.08.1
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	07e21b929bb92685250fa90e4f5a22eb
+# Source0-md5:	7956486125d852a9728cb81c444d6a69
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= 5.15.2
 BuildRequires:	Qt5DBus-devel >= 5.15.2
