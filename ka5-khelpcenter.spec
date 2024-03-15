@@ -1,56 +1,58 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	24.01.95
+%define		kdeappsver	23.08.4
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		khelpcenter
 Summary:	khelpcenter
 Name:		ka5-%{kaname}
-Version:	24.01.95
-Release:	0.1
+Version:	23.08.4
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
-Source0:	https://download.kde.org/unstable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	cb8e714d45476b68044fd18683c06440
+Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	6a73708b00e2a417deb1cafaf7fbf1cc
 URL:		http://www.kde.org/
-BuildRequires:	Qt6Core-devel >= 5.15.2
-BuildRequires:	Qt6DBus-devel >= 5.15.2
-BuildRequires:	Qt6Gui-devel
-BuildRequires:	Qt6Widgets-devel >= 5.15.2
-BuildRequires:	Qt6Xml-devel >= 5.15.2
+BuildRequires:	Qt5Core-devel >= 5.15.2
+BuildRequires:	Qt5DBus-devel >= 5.15.2
+BuildRequires:	Qt5Gui-devel
+BuildRequires:	Qt5Widgets-devel >= 5.15.2
+BuildRequires:	Qt5Xml-devel >= 5.15.2
 BuildRequires:	cmake >= 3.20
 BuildRequires:	fontconfig-devel
 BuildRequires:	freetype-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gettext-devel
-BuildRequires:	grantlee-qt6-devel
-BuildRequires:	kf6-extra-cmake-modules >= 5.83.0
-BuildRequires:	kf6-karchive-devel >= 5.83.0
-BuildRequires:	kf6-kauth-devel >= %{kframever}
-BuildRequires:	kf6-kbookmarks-devel >= %{kframever}
-BuildRequires:	kf6-kcodecs-devel >= %{kframever}
-BuildRequires:	kf6-kcompletion-devel >= %{kframever}
-BuildRequires:	kf6-kconfig-devel >= %{kframever}
-BuildRequires:	kf6-kconfigwidgets-devel >= %{kframever}
-BuildRequires:	kf6-kcoreaddons-devel >= %{kframever}
-BuildRequires:	kf6-kdbusaddons-devel >= 5.83.0
-BuildRequires:	kf6-kdoctools-devel >= 5.83.0
-BuildRequires:	kf6-ki18n-devel >= %{kframever}
-BuildRequires:	kf6-kio-devel >= %{kframever}
-BuildRequires:	kf6-kitemviews-devel >= %{kframever}
-BuildRequires:	kf6-kjobwidgets-devel >= %{kframever}
-BuildRequires:	kf6-kparts-devel >= %{kframever}
-BuildRequires:	kf6-kservice-devel >= 5.83.0
-BuildRequires:	kf6-ktextwidgets-devel >= %{kframever}
-BuildRequires:	kf6-kwidgetsaddons-devel >= %{kframever}
-BuildRequires:	kf6-kwindowsystem-devel >= 5.83.0
-BuildRequires:	kf6-kxmlgui-devel >= %{kframever}
-BuildRequires:	kf6-solid-devel >= %{kframever}
-BuildRequires:	kf6-sonnet-devel >= %{kframever}
+BuildRequires:	grantlee-qt5-devel
+BuildRequires:	kf5-extra-cmake-modules >= 5.83.0
+BuildRequires:	kf5-karchive-devel >= 5.83.0
+BuildRequires:	kf5-kauth-devel >= %{kframever}
+BuildRequires:	kf5-kbookmarks-devel >= %{kframever}
+BuildRequires:	kf5-kcodecs-devel >= %{kframever}
+BuildRequires:	kf5-kcompletion-devel >= %{kframever}
+BuildRequires:	kf5-kconfig-devel >= %{kframever}
+BuildRequires:	kf5-kconfigwidgets-devel >= %{kframever}
+BuildRequires:	kf5-kcoreaddons-devel >= %{kframever}
+BuildRequires:	kf5-kdbusaddons-devel >= 5.83.0
+BuildRequires:	kf5-kdoctools-devel >= 5.83.0
+BuildRequires:	kf5-khtml-devel >= 5.83.0
+BuildRequires:	kf5-ki18n-devel >= %{kframever}
+BuildRequires:	kf5-kio-devel >= %{kframever}
+BuildRequires:	kf5-kitemviews-devel >= %{kframever}
+BuildRequires:	kf5-kjobwidgets-devel >= %{kframever}
+BuildRequires:	kf5-kjs-devel >= %{kframever}
+BuildRequires:	kf5-kparts-devel >= %{kframever}
+BuildRequires:	kf5-kservice-devel >= 5.83.0
+BuildRequires:	kf5-ktextwidgets-devel >= %{kframever}
+BuildRequires:	kf5-kwidgetsaddons-devel >= %{kframever}
+BuildRequires:	kf5-kwindowsystem-devel >= 5.83.0
+BuildRequires:	kf5-kxmlgui-devel >= %{kframever}
+BuildRequires:	kf5-solid-devel >= %{kframever}
+BuildRequires:	kf5-sonnet-devel >= %{kframever}
 BuildRequires:	libxml2-devel
 BuildRequires:	ninja
-BuildRequires:	qt6-build >= %{qtver}
+BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
@@ -114,8 +116,10 @@ rm -rf $RPM_BUILD_ROOT
 %files data -f %{kaname}.lang
 %defattr(644,root,root,755)
 %{_datadir}/config.kcfg/khelpcenter.kcfg
+%{_datadir}/kde4/services/khelpcenter.desktop
 %{_datadir}/khelpcenter
-%{_datadir}/qlogging-categories6/khelpcenter.categories
+%{_datadir}/kservices5/khelpcenter.desktop
+%{_datadir}/qlogging-categories5/khelpcenter.categories
 %{_desktopdir}/org.kde.khelpcenter.desktop
 %{_datadir}/dbus-1/services/org.kde.khelpcenter.service
 %{_datadir}/metainfo/org.kde.khelpcenter.metainfo.xml
